@@ -32,6 +32,11 @@ public:
         }
     }
 
+    bool IsNumericSequenceKeys() const
+    {
+        return m_numericSequenceKeys;
+    }
+
     // By default include all sequences.
     CorpusDescriptor(bool numericSequenceKeys) : m_includeAll(true), m_numericSequenceKeys(numericSequenceKeys)
     {

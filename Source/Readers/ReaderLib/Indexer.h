@@ -122,7 +122,7 @@ struct Index
 class Indexer
 {
 public:
-    Indexer(FILE* file, bool isPrimary, bool skipSequenceIds = false, char streamPrefix = '|', size_t chunkSize = 32 * 1024 * 1024, size_t bufferSize = 2 * 1024 * 1024);
+    Indexer(FILE* file, bool isPrimary, bool skipSequenceIds = false, bool numericSequenceId = true, char streamPrefix = '|', size_t chunkSize = 32 * 1024 * 1024, size_t bufferSize = 2 * 1024 * 1024);
 
     // Reads the input file, building and index of chunks and corresponding
     // sequences.
@@ -156,10 +156,10 @@ private:
     // a collection of chunk descriptors and sequence keys.
     Index m_index;
 
-    const char m_streamPrefix;
+    // Flag, indicating whether the indexer should expect numeric or symbolic sequence keys.
+    const bool m_numericSequenceKey;
 
-    // Same function as above but with check that the sequence is included in the corpus descriptor.
-    void AddSequenceIfIncluded(CorpusDescriptorPtr corpus, size_t sequenceKey, SequenceDescriptor& sd);
+    const char m_streamPrefix;
 
     // fills up the buffer with data from file, all previously buffered data
     // will be overwritten.
@@ -173,7 +173,7 @@ private:
     // EOF is reached without hitting the pipe character.
     // Returns false if no numerical characters are found preceding the pipe.
     // Otherwise, writes sequence id value to the provided reference, returns true.
-    bool TryGetSequenceId(size_t& id);
+    bool TryGetSequenceId(size_t& id, std::function<size_t(const std::string&)> keyToId);
 
     // Build a chunk/sequence index, treating each line as an individual sequence.
     // Does not do any sequence parsing, instead uses line number as 

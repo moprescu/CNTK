@@ -168,7 +168,7 @@ void TextParser<ElemType>::Initialize()
                 "UTF-16 encoding is currently not supported.", m_filename.c_str());
         }
 
-        m_indexer = make_unique<Indexer>(m_file, m_primary, m_skipSequenceIds, NAME_PREFIX, m_chunkSizeBytes);
+        m_indexer = make_unique<Indexer>(m_file, m_primary, m_skipSequenceIds, true /*numeric sequence keys*/, NAME_PREFIX, m_chunkSizeBytes);
         m_indexer->Build(m_corpus);
     });
 
@@ -451,12 +451,12 @@ typename TextParser<ElemType>::SequenceBuffer TextParser<ElemType>::LoadSequence
             sequenceDsc.m_key.m_sequence, GetFileInfo().c_str(), numRowsRead, expectedRowCount);
     }
 
-    FillSequenceMetadata(sequence);
+    FillSequenceMetadata(sequence, sequenceDsc.m_key);
     return sequence;
 }
 
 template<class ElemType>
-void TextParser<ElemType>::FillSequenceMetadata(SequenceBuffer& sequenceData)
+void TextParser<ElemType>::FillSequenceMetadata(SequenceBuffer& sequenceData, const KeyType& sequenceKey)
 {
     for (size_t j = 0; j < m_streamInfos.size(); ++j)
     {
@@ -473,6 +473,8 @@ void TextParser<ElemType>::FillSequenceMetadata(SequenceBuffer& sequenceData)
             sparseData->m_indices = sparseData->m_indicesBuffer.data();
             assert(data->m_numberOfSamples == sparseData->m_nnzCounts.size());
         }
+
+        data->m_key = sequenceKey;
     }
 }
 
