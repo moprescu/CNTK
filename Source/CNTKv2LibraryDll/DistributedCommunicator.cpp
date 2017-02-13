@@ -329,11 +329,11 @@ namespace CNTK
         {
             if (inputValues[0]->GetDataType() == DataType::Float)
             {
-                m_aggregationBufferFloat.reset(new (std::nothrow) Matrix<float>(1, packedGradientsSizeInBytes / sizeof(float), CPUDEVICE));
+                m_aggregationBufferFloat.reset(new (std::nothrow) Matrix<float>(1, packedGradientsSizeInBytes / sizeof(float), inputValues[0]->Device().Id()));
             }
             else
             {
-                m_aggregationBufferDouble.reset(new (std::nothrow) Matrix<double>(1, packedGradientsSizeInBytes / sizeof(double), CPUDEVICE));
+                m_aggregationBufferDouble.reset(new (std::nothrow) Matrix<double>(1, packedGradientsSizeInBytes / sizeof(double), inputValues[0]->Device().Id()));
             }
             if (m_aggregationBufferFloat == nullptr && m_aggregationBufferDouble == nullptr)
             {
