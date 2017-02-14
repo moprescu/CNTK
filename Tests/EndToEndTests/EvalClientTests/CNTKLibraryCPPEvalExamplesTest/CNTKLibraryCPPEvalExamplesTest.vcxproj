@@ -25,7 +25,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Examples\Evaluation\CNTKLibraryCPPEvalCPUOnlyExamples\EvalMultithreads.cpp" />
     <ClCompile Include="..\..\CNTKv2Library\Common\Common.cpp" />
-    <ClCompile Include="CNTKLibraryCPPevalExamplesTest.cpp" />
+    <ClCompile Include="CNTKLibraryCPPEvalExamplesTest.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D771A06D-CC25-4582-B5CD-D2A4782BB005}</ProjectGuid>

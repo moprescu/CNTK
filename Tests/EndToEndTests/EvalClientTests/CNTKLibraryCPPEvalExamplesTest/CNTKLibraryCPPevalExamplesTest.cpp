@@ -12,7 +12,6 @@ bool IsGPUAvailable();
 
 int main()
 {
-
     if (IsGPUAvailable())
     {
         fprintf(stderr, "\n##### Test CNTKLibraryCPPEvalExamples on GPU device. #####\n");
