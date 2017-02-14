@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CNTKLibraryCSEvalCPUOnlyExa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CNTKLibraryCSEvalGPUExamples", "CNTKLibraryCSEvalGPUExamples\CNTKLibraryCSEvalGPUExamples.csproj", "{307E5BAC-DA03-45D2-ADEC-FE6620090109}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CNTKLibraryCPPEvalGPUExamples", "CNTKLibraryCPPEvalGPUExamples\CNTKLibraryCPPEvalGPUExamples.vcxproj", "{13489884-3A6A-4023-8CF1-D8C78DDAF952}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -27,6 +29,10 @@ Global
 		{307E5BAC-DA03-45D2-ADEC-FE6620090109}.Debug|x64.Build.0 = Debug|x64
 		{307E5BAC-DA03-45D2-ADEC-FE6620090109}.Release|x64.ActiveCfg = Release|x64
 		{307E5BAC-DA03-45D2-ADEC-FE6620090109}.Release|x64.Build.0 = Release|x64
+		{13489884-3A6A-4023-8CF1-D8C78DDAF952}.Debug|x64.ActiveCfg = Debug|x64
+		{13489884-3A6A-4023-8CF1-D8C78DDAF952}.Debug|x64.Build.0 = Debug|x64
+		{13489884-3A6A-4023-8CF1-D8C78DDAF952}.Release|x64.ActiveCfg = Release|x64
+		{13489884-3A6A-4023-8CF1-D8C78DDAF952}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
