@@ -20,6 +20,8 @@ struct KeyType
 {
     KeyType() : m_sequence(0), m_sample(0) {}
 
+    KeyType(size_t sequence, size_t sample) : m_sequence(sequence), m_sample(sample) {}
+
     // Possible sequence common prefix.
     // size_t m_prefix;
 
